@@ -4,7 +4,7 @@
   "description": "backend aplikasi ldm lampung",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon index.js"
   },
   "jest": {
     "testEnvironment": "node"
