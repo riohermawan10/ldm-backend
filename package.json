@@ -4,9 +4,9 @@
   "description": "backend aplikasi ldm lampung",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "prd": "env-cmd ./config/prd.env nodemon index.js",
-    "dev": "env-cmd ./config/dev.env nodemon index.js",
+    "start": "nodemon server.js",
+    "prd": "env-cmd ./config/prd.env nodemon server.js",
+    "dev": "env-cmd ./config/dev.env nodemon server.js",
     "test": "env-cmd ./config/dev.env jest --watch"
   },
   "jest": {
