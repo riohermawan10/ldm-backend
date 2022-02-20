@@ -4,10 +4,8 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
-
-
+// const swaggerJsDoc = require('swagger-jsdoc');
+// const swaggerUI = require('swagger-ui-express');
 
 const app = express();
 app.use(cors());
@@ -57,30 +55,30 @@ app.use('/images', express.static(path.join("images")));
 
 
 //define swagger
-const swaggerOptions = {
-    swaggerDefinition: {
-      info: {
-        title: "API LDM",
-        version: '1.0.0',
-      },
-      host: "localhost:5000",
-      basePath: "/api",
-    },
-    components: {
-        securitySchemes: {
-          jwt: {
-            type: "http",
-            scheme: "bearer",
-            in: "header",
-            bearerFormat: "JWT"
-          },
-        }
-      },
-    security: [ { jwt: [] } ],
-    apis: ["./routes/*.js"],
-  };
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+// const swaggerOptions = {
+//     swaggerDefinition: {
+//       info: {
+//         title: "API LDM",
+//         version: '1.0.0',
+//       },
+//       host: "localhost:5000",
+//       basePath: "/api",
+//     },
+//     components: {
+//         securitySchemes: {
+//           jwt: {
+//             type: "http",
+//             scheme: "bearer",
+//             in: "header",
+//             bearerFormat: "JWT"
+//           },
+//         }
+//       },
+//     security: [ { jwt: [] } ],
+//     apis: ["./routes/*.js"],
+//   };
+// const swaggerDocs = swaggerJsDoc(swaggerOptions);
+// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 const connection = require('./db/connection');
 
