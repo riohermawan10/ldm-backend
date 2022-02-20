@@ -43,50 +43,21 @@ const JobRouting = require('./routes/job');
 const ProdukRouting = require('./routes/product');
 const KategoriRouting = require('./routes/category');
 const notRouting = require('./routes/notefound');
+const connection = require('./db/connection');
 
 //routing-url
 app.use('/', notRouting);
-app.use('/api/user/', UserRouting);
-app.use('/api/job/', JobRouting);
-app.use('/api/kategori/', KategoriRouting);
-app.use('/api/produk/', ProdukRouting);
-
-app.use('/images', express.static(path.join("images")));
-
-
-//define swagger
-// const swaggerOptions = {
-//     swaggerDefinition: {
-//       info: {
-//         title: "API LDM",
-//         version: '1.0.0',
-//       },
-//       host: "localhost:5000",
-//       basePath: "/api",
-//     },
-//     components: {
-//         securitySchemes: {
-//           jwt: {
-//             type: "http",
-//             scheme: "bearer",
-//             in: "header",
-//             bearerFormat: "JWT"
-//           },
-//         }
-//       },
-//     security: [ { jwt: [] } ],
-//     apis: ["./routes/*.js"],
-//   };
-// const swaggerDocs = swaggerJsDoc(swaggerOptions);
-// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
-
-const connection = require('./db/connection');
+// app.use('/api/user/', UserRouting);
+// app.use('/api/job/', JobRouting);
+// app.use('/api/kategori/', KategoriRouting);
+// app.use('/api/produk/', ProdukRouting);
+// app.use('/images', express.static(path.join("images")));
 
 const port = process.env.port || 5000;
 app.listen(port, async () => {
     try {
-        await connection.authenticate();
-        await connection.sync({ force: false });
+        // await connection.authenticate();
+        // await connection.sync({ force: false });
         console.log('Connection has been connect in database and server port: ' + port);
     } catch (error) {
         console.error('Unable to connect to the database: ', error.message);
