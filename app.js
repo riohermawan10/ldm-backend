@@ -9,10 +9,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) => res.send('<h2> Hello World! </h2>'));
 
-const port = process.env.port || 5000;
-app.listen(port, async () => {
+const PORT = process.env.PORT || 4000
+app.listen(PORT, async () => {
     try {
-        console.log('Connection has been connect in database and server port: ' + port);
+        console.log('Connection has been connect in database and server port: ' + PORT);
     } catch (error) {
         console.error('Unable to connect to the database: ', error.message);
     }
